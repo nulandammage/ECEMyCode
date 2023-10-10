@@ -73,7 +73,7 @@ class PCA9685:
 	  
   def setServoPulse(self, channel, pulse):
     "Sets the Servo Pulse,The PWM frequency must be 50HZ"
-    pulse = pulse*4096/20000        #PWM frequency is 50HZ,the period is 20000us
+    pulse = int(pulse*4096/20000)        #PWM frequency is 50HZ,the period is 20000us
     self.setPWM(channel, 0, pulse)
 
 
@@ -90,7 +90,7 @@ class AlphaBot(object):
 		self.PB  = 20
 
 		# This is added by nulan
-		self.pwm = PCA9685(0x40)
+		self.pwm = PCA9685(0x40, debug=True)
 		self.pwm.setPWMFreq(50)
 
 		GPIO.setmode(GPIO.BCM)
