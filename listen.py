@@ -35,7 +35,7 @@ def set_velocity():
         time.sleep(time_run)
         app.bot.stop()
 
-@app.get('robot/set/servoAngle')
+@app.get('robot/set/angle')
 def set_angle():
     angle = request.query.value.split(',')
     app.bot.turnServo(float(angle))
