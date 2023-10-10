@@ -38,7 +38,7 @@ def set_velocity():
 @app.get('/robot/set/angle')
 def set_angle():
     angle = request.query.value
-    app.bot.turnServo(float(angle))
+    app.bot.turnServo(int(angle))
     app.bot.stop()  
 
 s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
